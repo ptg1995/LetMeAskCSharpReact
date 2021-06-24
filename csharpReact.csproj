@@ -21,8 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\" />
+    <None Remove="ClientApp\src\components\CodeRoom.ts" />
+    <None Remove="ClientApp\src\components\CodeRoom.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\components\CodeRoom.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
