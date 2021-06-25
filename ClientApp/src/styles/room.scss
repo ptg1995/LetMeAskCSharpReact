@@ -19,16 +19,19 @@
     main {
         max-width: 800px;
         margin: 0 auto;
-        .room-title{
+
+        .room-title {
             margin: 32px 0 24px;
             display: flex;
             align-items: center;
-            h1{
+
+            h1 {
                 font-family: 'Poppins', sans-serif;
                 font-size: 24px;
                 color: #29292e;
             }
-            span{
+
+            span {
                 margin-left: 16px;
                 background: #e559f9;
                 border-radius: 9px;
@@ -38,30 +41,50 @@
                 font-size: 14px;
             }
         }
-        form{
-            textarea{
+
+        form {
+            textarea {
                 width: 100%;
-                border: 0;
+                border: 1.5px solid;
                 padding: 16px;
                 border-radius: 8px;
                 background: #fefefe;
                 box-shadow: 0 2px 12px rgba(0,0,0,0.04);
                 resize: 130px;
             }
-            .form-footer{
+
+            .form-footer {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin-top: 16px;
 
-                span{
+                span {
                     font-size: 14px;
                     color: #737380;
                     font-weight: 500;
 
-                    button{
+                    button {
                         background: transparent;
                         border: 0;
+                    }
+                }
+
+                .user-info{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    >img{
+                        width: 35px;
+                        height: 35px;
+                        border-radius: 50%;
+                    }
+                    >span{
+                        margin: 0 12px;
+                        font: 300 'Poppins';
+                        color: #29292e;
+                        font-size: 14px;
+                        font-weight: 500;
                     }
                 }
             }

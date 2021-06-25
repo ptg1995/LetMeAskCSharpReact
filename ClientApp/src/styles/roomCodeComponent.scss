@@ -1,0 +1,28 @@
+﻿.button-code-room {
+    height: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #FFF;
+    border: 1px solid #835afd;
+    cursor: pointer;
+    display: flex;
+
+    > div {
+        background: #835afd;
+        height: 100%;
+        width: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    > span {
+        justify-content: center;
+        display: block;
+        align-self: center;
+        padding: 0 16px 0 16px;
+        width: 240px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
