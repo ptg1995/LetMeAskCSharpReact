@@ -1,11 +1,11 @@
-import { useParams } from 'react-router-dom';
+﻿import { useParams } from 'react-router-dom';
 import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { CodeRoom } from '../components/CodeRoom';
 import { database } from '../services/firebase';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth'
-import { useRoom} from '../hooks/useRoom'
+import { useRoom } from '../hooks/useRoom'
 
 import { QuestionsBox } from '../components/Questions/Questions';
 import '../styles/room.scss'
@@ -13,10 +13,21 @@ type RoomData = {
     id: string,
 }
 
-export function Room(roomData: RoomData) {
+type QuestionsType = {
+    id: string,
+    author: {
+        name: string,
+        avatar: string,
+    }
+    content: string,
+    isAnswered: boolean,
+    isHighlighted: boolean,
+}
+
+export function AdminRoom(roomData: RoomData) {
     const params = useParams<RoomData>();
     const { userData } = useAuth();
-    const {title, questions } = useRoom(params.id);
+    const { title, questions } = useRoom(params.id);
 
     const [newQuestion, setNewQuestion] = useState('');
 
@@ -38,12 +49,15 @@ export function Room(roomData: RoomData) {
         const usersRef = await database.ref('rooms');
         usersRef.child(`${params.id}/questions`).push(question);
     }
-    return(
+    return (
         <div id="page-room">
             <header>
                 <div className="class-header">
                     <img src={logoImg} alt="LetMeAsk" />
-                    <CodeRoom code={params.id} />
+                    <div>
+                        <CodeRoom code={params.id} />
+                        <Button isOutlined>Encerrar Sala</Button>
+                    </div>
                 </div>
             </header>
 
@@ -61,19 +75,19 @@ export function Room(roomData: RoomData) {
                     />
                     <div className="form-footer">
                         {!userData ? (
-                            <span> Para enviar uma pergunta, <button>registre-se</button> </span>) : 
-                        (   <div className="user-info">
+                            <span> Para enviar uma pergunta, <button>registre-se</button> </span>) :
+                            (<div className="user-info">
                                 <img src={userData.avatar} />
                                 <span>{userData.name}</span>
                             </div>
-                        )}
+                            )}
                         <Button type="submit" disabled={!userData}> Enviar uma pergunta</Button>
                     </div>
                     {questions.map(item => {
                         return (
                             <QuestionsBox key={item.id} content={item.content} author={item.author} />
-                            );
-                        })
+                        );
+                    })
                     }
                 </form>
             </main>

@@ -15,14 +15,28 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\components\NovaPasta1\**" />
+    <Compile Remove="ClientApp\src\components\NovaPasta\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\components\NovaPasta1\**" />
+    <Content Remove="ClientApp\src\components\NovaPasta\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\NovaPasta1\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\NovaPasta\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\components\NovaPasta1\**" />
+    <None Remove="ClientApp\src\components\NovaPasta\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="ClientApp\src\components\CodeRoom.ts" />
     <None Remove="ClientApp\src\components\CodeRoom.tsx" />
+    <None Remove="ClientApp\src\components\file.tsx" />
+    <None Remove="ClientApp\src\components\Questions.tsx" />
+    <None Remove="ClientApp\src\components\Questions\file.tsx" />
+    <None Remove="ClientApp\src\components\Questions\Questions.tsx" />
+    <None Remove="ClientApp\src\hooks\useRoom.ts" />
+    <None Remove="ClientApp\src\pages\AdminRoom.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +45,12 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\components\CodeRoom.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\file.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Questions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Questions\file.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Questions\Questions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\hooks\useRoom.ts" />
+    <TypeScriptCompile Include="ClientApp\src\pages\AdminRoom.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

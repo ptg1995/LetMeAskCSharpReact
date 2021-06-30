@@ -1,7 +1,6 @@
-﻿import {ButtonHTMLAttributes} from 'react'
-import '../styles/roomCodeComponent.scss';
+﻿import '../styles/roomCodeComponent.scss';
 import copyImg from '../assets/images/copy.svg';
-import { useState } from 'react';
+
 type RoomCopyProps = {
     code: string;
 }

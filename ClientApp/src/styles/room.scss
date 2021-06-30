@@ -13,6 +13,17 @@
             > img {
                 max-height: 60px;
             }
+
+            > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
+
+                > Button {
+                    height: 40px;
+                }
+            }
         }
     }
 
@@ -70,16 +81,18 @@
                     }
                 }
 
-                .user-info{
+                .user-info {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    >img{
+
+                    > img {
                         width: 35px;
                         height: 35px;
                         border-radius: 50%;
                     }
-                    >span{
+
+                    > span {
                         margin: 0 12px;
                         font: 300 'Poppins';
                         color: #29292e;
